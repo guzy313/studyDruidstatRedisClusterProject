@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=http://www.thymeleaf.org>
+<head>
+    <meta charset="UTF-8">
+    <title>主页面</title>
+    <style>
+        .main{display:flex}
+        .userDiv{
+            width: 100%;
+        }
+        .rightClass{
+            width: 100%;
+        }
+        .userDiv_div{
+            width: 100%;
+            height: 38px;
+            background-color: burlywood;
+            padding-top: 10px;
+            padding-right: 10px;
+        }
+        .userClass{margin-left: 85%;}
+        .userNameClass{color:yellow;}
+        .menuClass{
+            background-color: darkslategray;
+            width: 150px;
+            height: 800px;
+        }
+        .menuClass div{
+            width: 150px;
+            height: 47px;
+            font-size: 18px;
+            color: aliceblue;
+            /*background-color: blueviolet;*/
+            text-align: center;
+            line-height: 36px;
+        }
+        .hot{
+           background-color: maroon;
+        }
+        .contextClass{
+            width:101% ;
+            height: 752px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+
+        <div class="menuClass">
+            <div class="menuClass_head">Menu</div>
+            <div class="hot"><a th:href="@{/basicTable}">basicTable</a></div>
+            <div>basicTable</div>
+            <!--        <div>basicTable</div>-->
+            <!--        <div>basicTable</div>-->
+            <!--        <div>basicTable</div>-->
+        </div>
+        <div class="rightClass">
+            <div class="userDiv">
+                <div class="userDiv_div">
+                 <div class="userClass">用户:
+                <span class="userNameClass" >[[${session.loginUser.username}]]</span>
+                <a th:href="@{/loginOut}">登出</a>
+                </div>
+                </div>
+
+            </div>
+            <div class="contextClass">
+                <!--
+                <table>
+                    <tr th:each="user:${testUsers}">
+                        <td th:text="${user.username}"></td>
+                        <td th:text="${user.password}"></td>
+                    </tr>
+                </table>-->
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+<script>
+</script>
+</html>

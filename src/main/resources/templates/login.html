@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=http://www.thymeleaf.org >
+<head>
+    <style>
+        .redMsg{color:red;}
+    </style>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+    <form th:action="@{/loginTo}" th:method="post">
+        用户名:<input type="text" name="userName"><br/>
+        密码:<input type="text" name="password"><br/>
+        <a class="redMsg" th:text="${loginMsg}"></a><br/>
+        <input type="submit" value="登录">
+    </form>
+
+</body>
+</html>

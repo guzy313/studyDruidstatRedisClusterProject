@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=http://www.thymeleaf.org >
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${status}">5xx</title>
+</head>
+<body>
+    <h1>[[${status}]]-服务器内部错误</h1>
+    <h2 th:text="${message}"></h2>
+    <a th:href="@{/}">返回主页</a>
+    <h3 th:text="${trace}"></h3>
+</body>
+</html>

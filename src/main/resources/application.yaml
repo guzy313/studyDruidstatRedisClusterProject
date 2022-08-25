@@ -1,0 +1,73 @@
+server:
+  port: 8090
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mydatabase?useUnicode=true&character=UTF-8&serverTimezone=UTC
+    username: root
+    password: syq
+
+  druid:
+    #监控 spring Bean
+    aop-patterns: com.my.admin.*
+    #底层开启功能 :stat(sql监控)，wall(防火墙)
+    filters: stat,wall#
+    stat-view-servlet:
+      enabled: true
+      #开启用户登录
+      login-username: admin
+      login-password: 123
+    web-stat-filter:
+      enabled: true
+      url-pattern: /*
+      exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+    filter:
+      stat:
+        #慢查询时间
+        slow-sql-millis: 1000
+        log-slow-sql: true
+        enabled: true
+      wall:
+        enabled: true
+        config:
+          #允许进行更新操作
+          update-allow: true
+          #不允许进行删表操作
+          drop-table-allow: false
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 12345
+    database: 0
+    connect-timeout: 1800000 #超时时间 毫秒
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: -1 #负数表示没有限制
+        min-idle: 0
+        max-idle: 8
+    client-type: jedis
+    jedis:
+      pool:
+        enabled: true
+        max-active: 20
+        max-wait: -1ms
+        min-idle: 0
+        max-idle: 8
+
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+#management:
+#  endpoint:
+#    info:
+#      cache:
+#        time-to-live: 0ms
+#      enabled: true
+#info:
+#  mavenProjectName: @artifactId@
+#  mavenProjectVersion: @project.version@
